@@ -60,6 +60,8 @@ function gameboard() {
 
     const fullArray = gameArray.concat([...gameArray]);
 
+    // Randomly shuffles the elements of the array
+    // Using Fisher-Yates algorithm
     for (let i = fullArray.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [fullArray[i], fullArray[j]] = [fullArray[j], fullArray[i]];
@@ -97,5 +99,36 @@ function card(value) {
   return { getValue };
 }
 
-const newBoard = gameboard();
-newBoard.printBoard();
+
+function gameController() {
+  const players = [createPlayer("Player 1"), createPlayer("Player 2")];
+
+  const board = gameboard();
+
+  let activePlayer = players[0];
+
+  const switchPlayer = () => {
+    activePlayer = activePlayer === players[0] ? players[1] : players[0];
+  };
+
+  const getActivePlayer = () => activePlayer;
+
+  const printNewRound = () => {
+    board.printBoard();
+    console.log(`${getActivePlayer().getName()}'s turn.`);
+  };
+
+  const playRound = () => {
+    switchPlayer();
+    printNewRound();
+  };
+  
+  printNewRound();
+
+  return {
+    getActivePlayer,
+    playRound,
+  };
+}
+
+const game = gameController();
