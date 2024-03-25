@@ -126,7 +126,7 @@ function gameboard() {
   const board = [];
 
 
-  const getGameArray = () => {
+  const createGameArray = () => {
     const gameArray = [];
 
     while (gameArray.length < 48) {
@@ -136,18 +136,34 @@ function gameboard() {
       }
     }
 
-    // Randomly shuffles the elements of the array
-    // Using Fisher-Yates algorithm
-    for (let i = gameArray.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [gameArray[i], gameArray[j]] = [gameArray[j], gameArray[i]];
-    }
-
-    console.log(gameArray);
     return gameArray;
   }
 
-  const idolArray = getGameArray()
+
+  const gameArray = createGameArray();
+
+
+  const getGameArray = () => gameArray;
+  console.log(getGameArray());
+
+
+  const randomizeGameArray = () => {
+    const randomizedGameArray = [...getGameArray()];
+    
+    /*
+     * Randomly shuffles the elements of the array
+     * Using Fisher-Yates algorithm
+     */
+    for (let i = randomizedGameArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [randomizedGameArray[i], randomizedGameArray[j]] = [randomizedGameArray[j], randomizedGameArray[i]];
+    }
+
+    return randomizedGameArray;
+  };
+
+
+  const idolArray = randomizeGameArray();
 
   for (let i = 0; i < rows; i++) {
     board[i] = [];
@@ -166,7 +182,11 @@ function gameboard() {
     console.log(boardWithValues);
   }
 
-  return { getBoard, printBoard };
+  return { 
+    getBoard, 
+    printBoard, 
+    getGameArray,
+  };
 }
 
 
@@ -205,7 +225,43 @@ function gameController() {
   return {
     getActivePlayer,
     playRound,
+    getBoard: board.getBoard,
+    getGameArray: board.getGameArray,
   };
 }
 
-const game = gameController();
+
+function screenController() {
+  const game = gameController();
+  const playerTurnDiv = document.querySelector(".active-player");
+  const cardsDiv = document.querySelector(".card-container");
+
+  const setScreen = () => {
+    const board = game.getBoard();
+    const activePlayer = game.getActivePlayer();
+
+    playerTurnDiv.textContent = `${activePlayer.getName()}'s turn...`;
+    console.log(game.getGameArray());
+
+    board.forEach(row => {
+      row.forEach((cell) => {
+        const cellBtn = document.createElement("button");
+        cellBtn.textContent = cell.getValue();
+
+        /*
+         * first check if value of cell is even or odd to check for first name.
+         * if even then it's first name and we keep it, else its the last name so
+         * we subtract 1 to get the matching first name.
+         */
+        const index = game.getGameArray().indexOf(cell.getValue()) % 2 === 0 ? game.getGameArray().indexOf(cell.getValue()) : game.getGameArray().indexOf(cell.getValue()) - 1
+        const name = game.getGameArray()[index];
+        cellBtn.dataset.name = name;
+        cardsDiv.appendChild(cellBtn);
+      })
+    })
+  };
+
+  setScreen();
+}
+
+screenController();
