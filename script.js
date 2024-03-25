@@ -149,7 +149,7 @@ function gameboard() {
 
   const randomizeGameArray = () => {
     const randomizedGameArray = [...getGameArray()];
-    
+
     /*
      * Randomly shuffles the elements of the array
      * Using Fisher-Yates algorithm
@@ -211,7 +211,6 @@ function gameController() {
   const getActivePlayer = () => activePlayer;
 
   const printNewRound = () => {
-    board.printBoard();
     console.log(`${getActivePlayer().getName()}'s turn.`);
   };
 
@@ -235,10 +234,10 @@ function screenController() {
   const game = gameController();
   const playerTurnDiv = document.querySelector(".active-player");
   const cardsDiv = document.querySelector(".card-container");
-
+  
   const setScreen = () => {
-    const board = game.getBoard();
     const activePlayer = game.getActivePlayer();
+    const board = game.getBoard();
 
     playerTurnDiv.textContent = `${activePlayer.getName()}'s turn...`;
     console.log(game.getGameArray());
@@ -260,6 +259,23 @@ function screenController() {
       })
     })
   };
+
+
+  const updateScreen = () => {
+    const activePlayer = game.getActivePlayer();
+    playerTurnDiv.textContent = `${activePlayer.getName()}'s turn...`;
+  };
+
+
+  function clickHandlerBoard(e) {
+    const selectedName = e.target.dataset.name;
+    if (!selectedName) return;
+
+    game.playRound();
+    updateScreen()
+  }
+
+  cardsDiv.addEventListener("click", clickHandlerBoard);
 
   setScreen();
 }
