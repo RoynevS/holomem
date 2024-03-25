@@ -1,33 +1,108 @@
 const testValues = [
-  "a", 
-  "b", 
-  "c", 
-  "d", 
-  "e", 
-  "f", 
-  "g", 
-  "h", 
-  "i", 
-  "j", 
-  "k", 
-  "l",
-  "m",
-  "n",
-  "o",
-  "p",
-  "q",
-  "r",
-  "s",
-  "t",
-  "u",
-  "v",
-  "w",
-  "x",
-  "y",
-  "z",
-  "ö",
-  "ä",
-  "ü",
+  {
+    firstName: "Sora",
+    lastName: "Tokino",
+  },
+  {
+    firstName: "Roboco",
+    lastName: "Roboco San",
+  },
+  {
+    firstName: "Miko",
+    lastName: "Sakura",
+  },
+  {
+    firstName: "Suisei",
+    lastName: "Hoshimachi",
+  },
+  {
+    firstName: "AZKi",
+    lastName: "AZKi",
+  },
+  {
+    firstName: "Rosenthal",
+    lastName: "Aki",
+  },
+  {
+    firstName: "Haato",
+    lastName: "Akai",
+  },
+  {
+    firstName: "Aqua",
+    lastName: "Minato",
+  },
+  {
+    firstName: "Shion",
+    lastName: "Murasaki",
+  },
+  {
+    firstName: "Fubuki",
+    lastName: "Shirakami",
+  },
+  {
+    firstName: "Matsuri",
+    lastName: "Natsuiro",
+  },
+  {
+    firstName: "Ayame",
+    lastName: "Nakiri",
+  },
+  {
+    firstName: "Choco",
+    lastName: "Yuzuki",
+  },
+  {
+    firstName: "Subaru",
+    lastName: "Oozora",
+  },
+  {
+    firstName: "Mio",
+    lastName: "Ookami",
+  },
+  {
+    firstName: "Okayu",
+    lastName: "Nekomata",
+  },
+  {
+    firstName: "Korone",
+    lastName: "Inugami",
+  },
+  {
+    firstName: "Pekora",
+    lastName: "Usada",
+  },
+  {
+    firstName: "Flare",
+    lastName: "Shiranui",
+  },
+  {
+    firstName: "Noel",
+    lastName: "Shirogane",
+  },
+  {
+    firstName: "Marine",
+    lastName: "Houshou",
+  },
+  {
+    firstName: "Kanata",
+    lastName: "Amane",
+  },
+  {
+    firstName: "Watame",
+    lastName: "Tsunomaki",
+  },
+  {
+    firstName: "Towa",
+    lastName: "Tokoyami",
+  },
+  {
+    firstName: "Luna",
+    lastName: "Himemori",
+  },
+  {
+    firstName: "Kiara",
+    lastName: "Takanashi",
+  },
 ];
 
 
@@ -50,32 +125,34 @@ function gameboard() {
   const columns = 8;
   const board = [];
 
-  const getRandomArray = () => {
-    const gameArray = []
 
-    while (gameArray.length < 24) {
+  const getGameArray = () => {
+    const gameArray = [];
+
+    while (gameArray.length < 48) {
       const randomIdol = testValues[Math.floor(Math.random() * testValues.length)];
-      if (!gameArray.includes(randomIdol)) gameArray.push(randomIdol);
+      if (!gameArray.includes(randomIdol.firstName)) {
+        gameArray.push(randomIdol.firstName, randomIdol.lastName);
+      }
     }
-
-    const fullArray = gameArray.concat([...gameArray]);
 
     // Randomly shuffles the elements of the array
     // Using Fisher-Yates algorithm
-    for (let i = fullArray.length - 1; i > 0; i--) {
+    for (let i = gameArray.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [fullArray[i], fullArray[j]] = [fullArray[j], fullArray[i]];
+      [gameArray[i], gameArray[j]] = [gameArray[j], gameArray[i]];
     }
 
-    return fullArray;
-  };
+    console.log(gameArray);
+    return gameArray;
+  }
 
-  const gameArray = getRandomArray();
+  const idolArray = getGameArray()
 
   for (let i = 0; i < rows; i++) {
     board[i] = [];
     for (let j = 0; j < columns; j++) {
-      board[i].push(card(gameArray[counter]));
+      board[i].push(card(idolArray[counter]));
       counter++;
     }
   }
