@@ -106,8 +106,9 @@ const testValues = [
 ];
 
 
-function createPlayer(name) {
+function createPlayer(name, id) {
   let score = 0;
+  const getID = () => id;
   const getName = () => name;
   const getScore = () => score;
   const increaseScore = () => score++;
@@ -116,6 +117,7 @@ function createPlayer(name) {
     getName,
     getScore,
     increaseScore,
+    getID,
   };
 }
 
@@ -199,7 +201,7 @@ function card(value) {
 
 
 function gameController() {
-  const players = [createPlayer("Player 1"), createPlayer("Player 2")];
+  const players = [createPlayer("Player 1", 1), createPlayer("Player 2", 2)];
 
   const board = gameboard();
 
@@ -264,11 +266,15 @@ function screenController() {
   const game = gameController();
   const playerTurnDiv = document.querySelector(".active-player");
   const cardsDiv = document.querySelector(".card-container");
-
+  const player1Score = document.querySelector(".player-1-section > .score");
+  const player2Score = document.querySelector(".player-2-section > .score");
   
   const setScreen = () => {
     const activePlayer = game.getActivePlayer();
     const board = game.getBoard();
+
+    player1Score.textContent = 0;
+    player2Score.textContent = 0;
 
     playerTurnDiv.textContent = `${activePlayer.getName()}'s turn...`;
     console.log(game.getGameArray());
@@ -296,6 +302,9 @@ function screenController() {
   const updateScreen = () => {
     const activePlayer = game.getActivePlayer();
     playerTurnDiv.textContent = `${activePlayer.getName()}'s turn...`;
+    activePlayer.getID() === 1 ? 
+      player1Score.textContent = activePlayer.getScore() : 
+      player2Score.textContent = activePlayer.getScore();
   };
 
 
