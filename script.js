@@ -165,6 +165,7 @@ function gameboard() {
 
   const idolArray = randomizeGameArray();
 
+  // fill board array with cells
   for (let i = 0; i < rows; i++) {
     board[i] = [];
     for (let j = 0; j < columns; j++) {
@@ -215,8 +216,37 @@ function gameController() {
   };
 
   const playRound = () => {
-    switchPlayer();
-    printNewRound();
+    let activeCardCounter = 0;
+    const activeCards = [];
+
+    const buttons = document.querySelectorAll(".card");
+    buttons.forEach(button => {
+      if (button.classList.contains("active")) {
+        activeCards.push(button);
+        activeCardCounter++;
+      };
+    });
+    
+    if (activeCardCounter === 2) {
+      const pair = activeCards[0].dataset.name === activeCards[1].dataset.name ? true : false;
+      checkForPair(pair, activeCards);
+    }
+  };
+
+  const checkForPair = (pair, activeCards) => {
+    if (!pair) {
+      for (card of activeCards) {
+        card.classList.remove("active");
+      }
+      switchPlayer();
+      printNewRound();
+    } else if (pair) {
+      for (card of activeCards) {
+        card.classList.remove("active");
+        card.classList.add("permanent");
+      }
+      getActivePlayer().increaseScore();
+    }
   };
   
   printNewRound();
@@ -234,6 +264,7 @@ function screenController() {
   const game = gameController();
   const playerTurnDiv = document.querySelector(".active-player");
   const cardsDiv = document.querySelector(".card-container");
+
   
   const setScreen = () => {
     const activePlayer = game.getActivePlayer();
@@ -245,6 +276,7 @@ function screenController() {
     board.forEach(row => {
       row.forEach((cell) => {
         const cellBtn = document.createElement("button");
+        cellBtn.classList.add("card");
         cellBtn.textContent = cell.getValue();
 
         /*
@@ -271,11 +303,14 @@ function screenController() {
     const selectedName = e.target.dataset.name;
     if (!selectedName) return;
 
+    e.target.classList.add("active");
     game.playRound();
     updateScreen()
   }
 
+  
   cardsDiv.addEventListener("click", clickHandlerBoard);
+  
 
   setScreen();
 }
