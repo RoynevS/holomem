@@ -231,11 +231,11 @@ function gameController() {
     
     if (activeCardCounter === 2) {
       const pair = activeCards[0].dataset.name === activeCards[1].dataset.name ? true : false;
-      checkForPair(pair, activeCards);
+      checkForPair(pair, activeCards, buttons);
     }
   };
 
-  const checkForPair = (pair, activeCards) => {
+  const checkForPair = (pair, activeCards, buttons) => {
     if (!pair) {
       for (card of activeCards) {
         card.classList.remove("active");
@@ -249,6 +249,14 @@ function gameController() {
       }
       getActivePlayer().increaseScore();
     }
+
+    const classes = [];
+    buttons.forEach(button => classes.push(button.classList.value));
+    if (classes.every(value => value === "card permanent")) endGame();
+  };
+
+  const endGame = () => {
+    console.log(`${getActivePlayer().getName()} wins!`);
   };
   
   printNewRound();
