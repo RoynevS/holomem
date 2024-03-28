@@ -217,7 +217,7 @@ function gameController() {
   const getActivePlayer = () => activePlayer;
 
 
-  const playRound = (updateScreen) => {
+  const playRound = (updateScreen, lastPressedBtn) => {
     let activeCardCounter = 0;
     const activeCards = [];
 
@@ -228,6 +228,10 @@ function gameController() {
         activeCardCounter++;
       };
     });
+
+    if (activeCardCounter > 2) {
+      lastPressedBtn.classList.remove("active");
+    }
     
     if (activeCardCounter === 2) {
       const pair = activeCards[0].dataset.name === activeCards[1].dataset.name ? true : false;
@@ -329,7 +333,7 @@ function screenController() {
     if (!selectedName) return;
 
     e.target.classList.add("active");
-    game.playRound(updateScreen);
+    game.playRound(updateScreen, e.target);
   }
 
   
