@@ -121,6 +121,7 @@ function createPlayer(name, id) {
   };
 }
 
+
 function gameboard() {
   let counter = 0;
   const rows = 6;
@@ -207,17 +208,16 @@ function gameController() {
 
   let activePlayer = players[0];
 
+
   const switchPlayer = () => {
     activePlayer = activePlayer === players[0] ? players[1] : players[0];
   };
 
+
   const getActivePlayer = () => activePlayer;
 
-  const printNewRound = () => {
-    console.log(`${getActivePlayer().getName()}'s turn.`);
-  };
 
-  const playRound = () => {
+  const playRound = (updateScreen) => {
     let activeCardCounter = 0;
     const activeCards = [];
 
@@ -231,23 +231,27 @@ function gameController() {
     
     if (activeCardCounter === 2) {
       const pair = activeCards[0].dataset.name === activeCards[1].dataset.name ? true : false;
-      checkForPair(pair, activeCards, buttons);
+      checkForPair(pair, activeCards, buttons, updateScreen);
     }
   };
 
-  const checkForPair = (pair, activeCards, buttons) => {
+
+  const checkForPair = (pair, activeCards, buttons,updateScreen) => {
     if (!pair) {
-      for (card of activeCards) {
-        card.classList.remove("active");
-      }
-      switchPlayer();
-      printNewRound();
+      setTimeout(function() {
+        for (card of activeCards) {
+          card.classList.remove("active");
+        }
+        switchPlayer();
+        updateScreen();
+      }, 2000);
     } else if (pair) {
       for (card of activeCards) {
         card.classList.remove("active");
         card.classList.add("permanent");
       }
       getActivePlayer().increaseScore();
+      updateScreen()
     }
 
     const classes = [];
@@ -255,11 +259,11 @@ function gameController() {
     if (classes.every(value => value === "card permanent")) endGame();
   };
 
+
   const endGame = () => {
     console.log(`${getActivePlayer().getName()} wins!`);
   };
   
-  printNewRound();
 
   return {
     getActivePlayer,
@@ -277,6 +281,7 @@ function screenController() {
   const player1Score = document.querySelector(".player-1-section > .score");
   const player2Score = document.querySelector(".player-2-section > .score");
   
+
   const setScreen = () => {
     const activePlayer = game.getActivePlayer();
     const board = game.getBoard();
@@ -290,8 +295,11 @@ function screenController() {
     board.forEach(row => {
       row.forEach((cell) => {
         const cellBtn = document.createElement("button");
+        const textPara = document.createElement("span");
+        textPara.textContent = cell.getValue();
+        textPara.classList.add("card-text");
+        cellBtn.appendChild(textPara);
         cellBtn.classList.add("card");
-        cellBtn.textContent = cell.getValue();
 
         /*
          * first check if value of cell is even or odd to check for first name.
@@ -321,8 +329,7 @@ function screenController() {
     if (!selectedName) return;
 
     e.target.classList.add("active");
-    game.playRound();
-    updateScreen()
+    game.playRound(updateScreen);
   }
 
   
