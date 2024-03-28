@@ -22,3 +22,12 @@ main {
 .primary-heading {
   text-align: center;
 }
+
+.card-text {
+  visibility: hidden;
+}
+
+.permanent > .card-text,
+.active > .card-text {
+  visibility: visible;
+}
