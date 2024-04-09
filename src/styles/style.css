@@ -101,3 +101,12 @@ main {
 .active > .card-text {
   visibility: visible;
 }
+
+dialog:modal {
+  margin: auto auto;
+  padding: 3rem;
+}
+
+dialog:modal::backdrop {
+  background: rgba(0, 0, 0, 0.4);
+}
