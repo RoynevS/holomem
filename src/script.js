@@ -112,7 +112,7 @@ function gameController() {
   const getActivePlayer = () => activePlayer;
 
 
-  const playRound = (updateScreen, lastPressedBtn) => {
+  const playRound = (updateScreen, lastPressedBtn, endScreen) => {
     let activeCardCounter = 0;
     const activeCards = [];
 
@@ -130,12 +130,12 @@ function gameController() {
     
     if (activeCardCounter === 2) {
       const pair = activeCards[0].dataset.name === activeCards[1].dataset.name ? true : false;
-      checkForPair(pair, activeCards, buttons, updateScreen);
+      checkForPair(pair, activeCards, buttons, updateScreen, endScreen);
     }
   };
 
 
-  const checkForPair = (pair, activeCards, buttons,updateScreen) => {
+  const checkForPair = (pair, activeCards, buttons, updateScreen, endScreen) => {
     if (!pair) {
       setTimeout(function() {
         for (card of activeCards) {
@@ -155,12 +155,15 @@ function gameController() {
 
     const classes = [];
     buttons.forEach(button => classes.push(button.classList.value));
-    if (classes.every(value => value === "card permanent")) endGame();
+    if (classes.every(value => value === "card permanent")) endScreen();
   };
 
 
-  const endGame = () => {
-    console.log(`${getActivePlayer().getName()} wins!`);
+  const checkWinner = () => {
+    if (players[0].getScore() > players[1].getScore()) {
+      return players[0].getName();
+    }
+    return players[1].getName();
   };
   
 
@@ -169,6 +172,7 @@ function gameController() {
     playRound,
     getBoard: board.getBoard,
     getGameArray: board.getGameArray,
+    checkWinner,
   };
 }
 
@@ -221,13 +225,22 @@ function screenController() {
       player2Score.textContent = activePlayer.getScore();
   };
 
+  const endScreen = () => {
+    const modal = document.querySelector("dialog");
+    const winner = game.checkWinner();
+    const winnerText = document.createElement("p");
+    winnerText.textContent = `Congratulations ${winner}, you win!`;
+    modal.appendChild(winnerText);
+    modal.showModal();
+  };
+
 
   function clickHandlerBoard(e) {
     const selectedName = e.target.dataset.name;
     if (!selectedName) return;
 
     e.target.classList.add("active");
-    game.playRound(updateScreen, e.target);
+    game.playRound(updateScreen, e.target, endScreen);
   }
 
   
