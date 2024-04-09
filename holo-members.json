@@ -20,6 +20,14 @@
     "lastName": "AZKi"
   },
   {
+    "firstName": "Fubuki",
+    "lastName": "Shirakami"
+  },
+  {
+    "firstName": "Matsuri",
+    "lastName": "Natsuiro"
+  },
+  {
     "firstName": "Rosenthal",
     "lastName": "Aki"
   },
@@ -34,14 +42,6 @@
   {
     "firstName": "Shion",
     "lastName": "Murasaki"
-  },
-  {
-    "firstName": "Fubuki",
-    "lastName": "Shirakami"
-  },
-  {
-    "firstName": "Matsuri",
-    "lastName": "Natsuiro"
   },
   {
     "firstName": "Ayame",
@@ -100,7 +100,155 @@
     "lastName": "Himemori"
   },
   {
+    "firstName": "Lamy",
+    "lastName": "Yukihana"
+  },
+  {
+    "firstName": "Nene",
+    "lastName": "Momosuzu"
+  },
+  {
+    "firstName": "Botan",
+    "lastName": "Shishiro"
+  },
+  {
+    "firstName": "Polka",
+    "lastName": "Omaru"
+  },
+  {
+    "firstName": "La+",
+    "lastName": "Darknesss"
+  },
+  {
+    "firstName": "Lui",
+    "lastName": "Takane"
+  },
+  {
+    "firstName": "Koyori",
+    "lastName": "Hakui"
+  },
+  {
+    "firstName": "Chloe",
+    "lastName": "Sakamata"
+  },
+  {
+    "firstName": "Iroha",
+    "lastName": "Kazama"
+  },
+  {
+    "firstName": "Ao",
+    "lastName": "Hiodoshi"
+  },
+  {
+    "firstName": "Kanade",
+    "lastName": "Otonose"
+  },
+  {
+    "firstName": "Ririka",
+    "lastName": "Ichijou"
+  },
+  {
+    "firstName": "Raden",
+    "lastName": "Juufuutei"
+  },
+  {
+    "firstName": "Hajime",
+    "lastName": "Todoroki"
+  },
+  {
+    "firstName": "Risu",
+    "lastName": "Ayunda"
+  },
+  {
+    "firstName": "Moona",
+    "lastName": "Hoshinova"
+  },
+  {
+    "firstName": "Iofifteen",
+    "lastName": "Airani"
+  },
+  {
+    "firstName": "Ollie",
+    "lastName": "Kureiji"
+  },
+  {
+    "firstName": "Anya",
+    "lastName": "Melfissa"
+  },
+  {
+    "firstName": "Reine",
+    "lastName": "Pavolia"
+  },
+  {
+    "firstName": "Zeta",
+    "lastName": "Vestia"
+  },
+  {
+    "firstName": "Kaela",
+    "lastName": "Kovalskia"
+  },
+  {
+    "firstName": "Kobo",
+    "lastName": "Kanaeru"
+  },
+  {
+    "firstName": "Calliope",
+    "lastName": "Mori"
+  },
+  {
     "firstName": "Kiara",
     "lastName": "Takanashi"
+  },
+  {
+    "firstName": "Ina'nis",
+    "lastName": "Ninomae"
+  },
+  {
+    "firstName": "Gura",
+    "lastName": "Gawr"
+  },
+  {
+    "firstName": "Amelia",
+    "lastName": "Watson"
+  },
+  {
+    "firstName": "IRyS",
+    "lastName": "IRyS"
+  },
+  {
+    "firstName": "Fauna",
+    "lastName": "Ceres"
+  },
+  {
+    "firstName": "Kronii",
+    "lastName": "Ouro"
+  },
+  {
+    "firstName": "Mumei",
+    "lastName": "Nanashi"
+  },
+  {
+    "firstName": "Baelz",
+    "lastName": "Hakos"
+  },
+  {
+    "firstName": "Shiori",
+    "lastName": "Novella"
+  },
+  {
+    "firstName": "Bijou",
+    "lastName": "Koseki"
+  },
+  {
+    "firstName": "Nerissa",
+    "lastName": "Ravencroft"
+  },
+  {
+    "firstName": "Fuwawa",
+    "lastName": "Abyssgard(F)"
+  },
+  {
+    "firstName": "Mococo",
+    "lastName": "Abyssgard(M)"
   }
 ]
