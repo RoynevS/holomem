@@ -147,7 +147,6 @@ function gameboard() {
 
 
   const getGameArray = () => gameArray;
-  console.log(getGameArray());
 
 
   const randomizeGameArray = () => {
@@ -294,7 +293,6 @@ function screenController() {
     player2Score.textContent = 0;
 
     playerTurnDiv.textContent = `${activePlayer.getName()}'s turn...`;
-    console.log(game.getGameArray());
 
     board.forEach(row => {
       row.forEach((cell) => {
