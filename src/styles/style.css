@@ -79,6 +79,14 @@ main {
   border: 5px solid var(--clr-accent-100);
 }
 
+.card.active {
+  box-shadow: 0 0 3px 3px var(--clr-accent-300);
+}
+
+.card.permanent {
+  box-shadow: 0 0 3px 3px var(--clr-accent-200);
+}
+
 .primary-heading {
   text-align: center;
   font-size: var(--fs-700);
