@@ -1,7 +1,6 @@
 import members from "./holo-members.json";
 import "./styles/style.css";
 
-
 function createPlayer(name, id) {
   let score = 0;
   const getID = () => id;
@@ -17,13 +16,11 @@ function createPlayer(name, id) {
   };
 }
 
-
 function gameboard() {
   let counter = 0;
   const rows = 6;
   const columns = 8;
   const board = [];
-
 
   const createGameArray = () => {
     const gameArray = [];
@@ -31,19 +28,23 @@ function gameboard() {
     while (gameArray.length < 48) {
       const randomIdol = members[Math.floor(Math.random() * members.length)];
       if (!gameArray.includes(randomIdol.firstName)) {
+        /*
+         * TODO: get pictures of every member
+         * - add them to JSON as 3rd property
+         * - make first element of push the combination of first and lastname
+         * - ${} ${}
+         * - make second the link to the picture
+         */
         gameArray.push(randomIdol.firstName, randomIdol.lastName);
       }
     }
 
     return gameArray;
-  }
-
+  };
 
   const gameArray = createGameArray();
 
-
   const getGameArray = () => gameArray;
-
 
   const randomizeGameArray = () => {
     const randomizedGameArray = [...getGameArray()];
@@ -54,12 +55,14 @@ function gameboard() {
      */
     for (let i = randomizedGameArray.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [randomizedGameArray[i], randomizedGameArray[j]] = [randomizedGameArray[j], randomizedGameArray[i]];
+      [randomizedGameArray[i], randomizedGameArray[j]] = [
+        randomizedGameArray[j],
+        randomizedGameArray[i],
+      ];
     }
 
     return randomizedGameArray;
   };
-
 
   const idolArray = randomizeGameArray();
 
@@ -72,29 +75,27 @@ function gameboard() {
     }
   }
 
-
   const getBoard = () => board;
 
-
   const printBoard = () => {
-    const boardWithValues = board.map(row => row.map(card => card.getValue()));
+    const boardWithValues = board.map((row) =>
+      row.map((card) => card.getValue())
+    );
     console.log(boardWithValues);
-  }
+  };
 
-  return { 
-    getBoard, 
-    printBoard, 
+  return {
+    getBoard,
+    printBoard,
     getGameArray,
   };
 }
-
 
 function card(value) {
   const getValue = () => value;
 
   return { getValue };
 }
-
 
 function gameController() {
   const players = [createPlayer("Player 1", 1), createPlayer("Player 2", 2)];
@@ -103,41 +104,46 @@ function gameController() {
 
   let activePlayer = players[0];
 
-
   const switchPlayer = () => {
     activePlayer = activePlayer === players[0] ? players[1] : players[0];
   };
 
-
   const getActivePlayer = () => activePlayer;
-
 
   const playRound = (updateScreen, lastPressedBtn, endScreen) => {
     let activeCardCounter = 0;
     const activeCards = [];
 
     const buttons = document.querySelectorAll(".card");
-    buttons.forEach(button => {
+    buttons.forEach((button) => {
       if (button.classList.contains("active")) {
         activeCards.push(button);
         activeCardCounter++;
-      };
+      }
     });
 
     if (activeCardCounter > 2) {
       lastPressedBtn.classList.remove("active");
     }
-    
+
     if (activeCardCounter === 2) {
-      const pair = activeCards[0].dataset.name === activeCards[1].dataset.name ? true : false;
+      const pair =
+        activeCards[0].dataset.name === activeCards[1].dataset.name
+          ? true
+          : false;
       checkForPair(pair, activeCards, buttons, updateScreen, endScreen);
     }
   };
 
-
-  const checkForPair = (pair, activeCards, buttons, updateScreen, endScreen) => {
+  const checkForPair = (
+    pair,
+    activeCards,
+    buttons,
+    updateScreen,
+    endScreen
+  ) => {
     if (!pair) {
-      setTimeout(function() {
+      setTimeout(function () {
         for (card of activeCards) {
           card.classList.remove("active");
         }
@@ -150,14 +156,13 @@ function gameController() {
         card.classList.add("permanent");
       }
       getActivePlayer().increaseScore();
-      updateScreen()
+      updateScreen();
     }
 
     const classes = [];
-    buttons.forEach(button => classes.push(button.classList.value));
-    if (classes.every(value => value === "card permanent")) endScreen();
+    buttons.forEach((button) => classes.push(button.classList.value));
+    if (classes.every((value) => value === "card permanent")) endScreen();
   };
-
 
   const checkWinner = () => {
     if (players[0].getScore() > players[1].getScore()) {
@@ -165,7 +170,6 @@ function gameController() {
     }
     return players[1].getName();
   };
-  
 
   return {
     getActivePlayer,
@@ -176,14 +180,12 @@ function gameController() {
   };
 }
 
-
 function screenController() {
   const game = gameController();
   const playerTurnDiv = document.querySelector(".active-player");
   const cardsDiv = document.querySelector(".card-container");
   const player1Score = document.querySelector(".player-1-section > .score");
   const player2Score = document.querySelector(".player-2-section > .score");
-  
 
   const setScreen = () => {
     const activePlayer = game.getActivePlayer();
@@ -194,7 +196,8 @@ function screenController() {
 
     playerTurnDiv.textContent = `${activePlayer.getName()}'s turn...`;
 
-    board.forEach(row => {
+    // TODO: change way cards are made to incorporate pictures
+    board.forEach((row) => {
       row.forEach((cell) => {
         const cellBtn = document.createElement("button");
         const textPara = document.createElement("span");
@@ -208,21 +211,23 @@ function screenController() {
          * if even then it's first name and we keep it, else its the last name so
          * we subtract 1 to get the matching first name.
          */
-        const index = game.getGameArray().indexOf(cell.getValue()) % 2 === 0 ? game.getGameArray().indexOf(cell.getValue()) : game.getGameArray().indexOf(cell.getValue()) - 1
+        const index =
+          game.getGameArray().indexOf(cell.getValue()) % 2 === 0
+            ? game.getGameArray().indexOf(cell.getValue())
+            : game.getGameArray().indexOf(cell.getValue()) - 1;
         const name = game.getGameArray()[index];
         cellBtn.dataset.name = name;
         cardsDiv.appendChild(cellBtn);
-      })
-    })
+      });
+    });
   };
-
 
   const updateScreen = () => {
     const activePlayer = game.getActivePlayer();
     playerTurnDiv.textContent = `${activePlayer.getName()}'s turn...`;
-    activePlayer.getID() === 1 ? 
-      player1Score.textContent = activePlayer.getScore() : 
-      player2Score.textContent = activePlayer.getScore();
+    activePlayer.getID() === 1
+      ? (player1Score.textContent = activePlayer.getScore())
+      : (player2Score.textContent = activePlayer.getScore());
   };
 
   const endScreen = () => {
@@ -234,7 +239,6 @@ function screenController() {
     modal.showModal();
   };
 
-
   function clickHandlerBoard(e) {
     const selectedName = e.target.dataset.name;
     if (!selectedName) return;
@@ -243,11 +247,10 @@ function screenController() {
     game.playRound(updateScreen, e.target, endScreen);
   }
 
-  
   cardsDiv.addEventListener("click", clickHandlerBoard);
-  
 
   setScreen();
 }
 
+// TODO call on DOMCONTENTLOAD and create replay button that calls function
 screenController();
