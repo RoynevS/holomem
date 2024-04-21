@@ -94,10 +94,13 @@ main {
   font-weight: var(--fw-bold);
 }
 
-.card-text {
+.card-text,
+.image {
   visibility: hidden;
 }
 
+.permanent > .image,
+.active > .image,
 .permanent > .card-text,
 .active > .card-text {
   visibility: visible;
@@ -105,9 +108,15 @@ main {
 
 dialog:modal {
   margin: auto auto;
+  width: 50%;
+  height: 30%;
   padding: 3rem;
 }
 
 dialog:modal::backdrop {
   background: rgba(0, 0, 0, 0.4);
+}
+
+.card > .image {
+  width: 100%;
 }
