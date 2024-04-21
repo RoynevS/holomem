@@ -27,16 +27,9 @@ function gameboard() {
 
     while (gameArray.length < 48) {
       const randomIdol = members[Math.floor(Math.random() * members.length)];
-      if (!gameArray.includes(randomIdol.firstName)) {
-        /*
-         * TODO: get pictures of every member
-         * - add them to JSON as 3rd property
-         * - make first element of push the combination of first and lastname
-         * - ${} ${}
-         * - make second the link to the picture
-         */
-        gameArray.push(randomIdol.firstName, randomIdol.lastName);
-      }
+      const fullName = `${randomIdol.firstName} ${randomIdol.lastName}`;
+      if (!gameArray.includes(fullName))
+        gameArray.push(fullName, randomIdol.image);
     }
 
     return gameArray;
@@ -165,10 +158,13 @@ function gameController() {
   };
 
   const checkWinner = () => {
-    if (players[0].getScore() > players[1].getScore()) {
-      return players[0].getName();
+    if (players[0].getScore() === players[1].getScore()) {
+      return `It's a draw`;
     }
-    return players[1].getName();
+    if (players[0].getScore() > players[1].getScore()) {
+      return `Congratulations ${players[0].getName()}, you win!`;
+    }
+    return `Congratulations ${players[1].getName()}, you win!`;
   };
 
   return {
@@ -196,14 +192,21 @@ function screenController() {
 
     playerTurnDiv.textContent = `${activePlayer.getName()}'s turn...`;
 
-    // TODO: change way cards are made to incorporate pictures
     board.forEach((row) => {
       row.forEach((cell) => {
         const cellBtn = document.createElement("button");
-        const textPara = document.createElement("span");
-        textPara.textContent = cell.getValue();
-        textPara.classList.add("card-text");
-        cellBtn.appendChild(textPara);
+        const cellText = cell.getValue();
+        if (cellText.includes("../")) {
+          const image = new Image();
+          image.src = cellText;
+          image.classList.add("image");
+          cellBtn.appendChild(image);
+        } else {
+          const textPara = document.createElement("span");
+          textPara.textContent = cellText;
+          textPara.classList.add("card-text");
+          cellBtn.appendChild(textPara);
+        }
         cellBtn.classList.add("card");
 
         /*
@@ -234,7 +237,7 @@ function screenController() {
     const modal = document.querySelector("dialog");
     const winner = game.checkWinner();
     const winnerText = document.createElement("p");
-    winnerText.textContent = `Congratulations ${winner}, you win!`;
+    winnerText.textContent = winner;
     modal.appendChild(winnerText);
     modal.showModal();
   };
@@ -252,5 +255,4 @@ function screenController() {
   setScreen();
 }
 
-// TODO call on DOMCONTENTLOAD and create replay button that calls function
-screenController();
+document.addEventListener("DOMContentLoaded", screenController);
