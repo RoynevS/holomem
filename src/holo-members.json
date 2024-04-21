@@ -1,254 +1,317 @@
 [
   {
     "firstName": "Sora",
-    "lastName": "Tokino"
+    "lastName": "Tokino",
+    "image": "../src/images/tokino_sora_thumb.png"
   },
   {
     "firstName": "Roboco",
-    "lastName": "Roboco San"
+    "lastName": "Roboco San",
+    "image": "../src/images/roboco-san_thumb.png"
   },
   {
     "firstName": "Miko",
-    "lastName": "Sakura"
+    "lastName": "Sakura",
+    "image": "../src/images/Sakura-Miko_thumb.png"
   },
   {
     "firstName": "Suisei",
-    "lastName": "Hoshimachi"
+    "lastName": "Hoshimachi",
+    "image": "../src/images/Hoshimachi-Suisei_list_thumb.png"
   },
   {
     "firstName": "AZKi",
-    "lastName": "AZKi"
+    "lastName": "AZKi",
+    "image": "../src/images/AZKi_list_thumb.png"
   },
   {
     "firstName": "Fubuki",
-    "lastName": "Shirakami"
+    "lastName": "Shirakami",
+    "image": "../src/images/Shirakami-Fubuki_list_thumb.png"
   },
   {
     "firstName": "Matsuri",
-    "lastName": "Natsuiro"
+    "lastName": "Natsuiro",
+    "image": "../src/images/Natsuiro-Matsuri_list_thumb.png"
   },
   {
     "firstName": "Rosenthal",
-    "lastName": "Aki"
+    "lastName": "Aki",
+    "image": "../src/images/Aki-Rosenthal_list_thumb.png"
   },
   {
     "firstName": "Haato",
-    "lastName": "Akai"
+    "lastName": "Akai",
+    "image": "../src/images/Akai-Haato_list_thumb.png"
   },
   {
     "firstName": "Aqua",
-    "lastName": "Minato"
+    "lastName": "Minato",
+    "image": "../src/images/Minato-Aqua_list_thumb.png"
   },
   {
     "firstName": "Shion",
-    "lastName": "Murasaki"
+    "lastName": "Murasaki",
+    "image": "../src/images/shion_thumb.png"
   },
   {
     "firstName": "Ayame",
-    "lastName": "Nakiri"
+    "lastName": "Nakiri",
+    "image": "../src/images/Nakiri-Ayame_list_thumb.png"
   },
   {
     "firstName": "Choco",
-    "lastName": "Yuzuki"
+    "lastName": "Yuzuki",
+    "image": "../src/images/Yuzuki-Choco_list_thumb.png"
   },
   {
     "firstName": "Subaru",
-    "lastName": "Oozora"
+    "lastName": "Oozora",
+    "image": "../src/images/Oozora-Subaru_list_thumb.png"
   },
   {
     "firstName": "Mio",
-    "lastName": "Ookami"
+    "lastName": "Ookami",
+    "image": "../src/images/Ookami-Mio_thumb.png"
   },
   {
     "firstName": "Okayu",
-    "lastName": "Nekomata"
+    "lastName": "Nekomata",
+    "image": "../src/images/Nekomata-Okayu_list_thumb.png"
   },
   {
     "firstName": "Korone",
-    "lastName": "Inugami"
+    "lastName": "Inugami",
+    "image": "../src/images/Inugami-Korone_list_thumb.png"
   },
   {
     "firstName": "Pekora",
-    "lastName": "Usada"
+    "lastName": "Usada",
+    "image": "../src/images/Usada-Pekora_list_thumb.png"
   },
   {
     "firstName": "Flare",
-    "lastName": "Shiranui"
+    "lastName": "Shiranui",
+    "image": "../src/images/Shiranui-Flare_list_thumb.png"
   },
   {
     "firstName": "Noel",
-    "lastName": "Shirogane"
+    "lastName": "Shirogane",
+    "image": "../src/images/Shirogane-Noel_thumb.png"
   },
   {
     "firstName": "Marine",
-    "lastName": "Houshou"
+    "lastName": "Houshou",
+    "image": "../src/images/houshou_marine_thumb.png"
   },
   {
     "firstName": "Kanata",
-    "lastName": "Amane"
+    "lastName": "Amane",
+    "image": "../src/images/Amane-Kanata_list_thumb.png"
   },
   {
     "firstName": "Watame",
-    "lastName": "Tsunomaki"
+    "lastName": "Tsunomaki",
+    "image": "../src/images/Tsunomaki-Watame_list_thumb-1.png"
   },
   {
     "firstName": "Towa",
-    "lastName": "Tokoyami"
+    "lastName": "Tokoyami",
+    "image": "../src/images/Tokoyami-Towa_list_thumb.png"
   },
   {
     "firstName": "Luna",
-    "lastName": "Himemori"
+    "lastName": "Himemori",
+    "image": "../src/images/Himemori-Luna_list_thumb.png"
   },
   {
     "firstName": "Lamy",
-    "lastName": "Yukihana"
+    "lastName": "Yukihana",
+    "image": "../src/images/Yukihana-Lamy_list_thumb.png"
   },
   {
     "firstName": "Nene",
-    "lastName": "Momosuzu"
+    "lastName": "Momosuzu",
+    "image": "../src/images/Momosuzu-Nene_list_thumb.png"
   },
   {
     "firstName": "Botan",
-    "lastName": "Shishiro"
+    "lastName": "Shishiro",
+    "image": "../src/images/Shishiro-Botan_list_thumb.png"
   },
   {
     "firstName": "Polka",
-    "lastName": "Omaru"
+    "lastName": "Omaru",
+    "image": "../src/images/Omaru-Polka_list_thumb.png"
   },
   {
     "firstName": "La+",
-    "lastName": "Darknesss"
+    "lastName": "Darknesss",
+    "image": "../src/images/La-Darknesss_list_thumb.png"
   },
   {
     "firstName": "Lui",
-    "lastName": "Takane"
+    "lastName": "Takane",
+    "image": "../src/images/Takane-Lui_list_thumb.png"
   },
   {
     "firstName": "Koyori",
-    "lastName": "Hakui"
+    "lastName": "Hakui",
+    "image": "../src/images/Hakui-Koyori_list_thumb.png"
   },
   {
     "firstName": "Chloe",
-    "lastName": "Sakamata"
+    "lastName": "Sakamata",
+    "image": "../src/images/Sakamata-Chloe_list_thumb.png"
   },
   {
     "firstName": "Iroha",
-    "lastName": "Kazama"
+    "lastName": "Kazama",
+    "image": "../src/images/Kazama-Iroha_list_thumb.png"
   },
   {
     "firstName": "Ao",
-    "lastName": "Hiodoshi"
+    "lastName": "Hiodoshi",
+    "image": "../src/images/Hiodoshi-Ao_list_thumb.png"
   },
   {
     "firstName": "Kanade",
-    "lastName": "Otonose"
+    "lastName": "Otonose",
+    "image": "../src/images/Otonose-Kanade_list_thumb.png"
   },
   {
     "firstName": "Ririka",
-    "lastName": "Ichijou"
+    "lastName": "Ichijou",
+    "image": "../src/images/Ichijou-Ririka_list_thumb.png"
   },
   {
     "firstName": "Raden",
-    "lastName": "Juufuutei"
+    "lastName": "Juufuutei",
+    "image": "../src/images/Juufuutei-Raden_list_thumb.png"
   },
   {
     "firstName": "Hajime",
-    "lastName": "Todoroki"
+    "lastName": "Todoroki",
+    "image": "../src/images/Todoroki-Hajime_list_thumb.png"
   },
   {
     "firstName": "Risu",
-    "lastName": "Ayunda"
+    "lastName": "Ayunda",
+    "image": "../src/images/Risu-Ayunda.png"
   },
   {
     "firstName": "Moona",
-    "lastName": "Hoshinova"
+    "lastName": "Hoshinova",
+    "image": "../src/images/Moona-Hoshinova.png"
   },
   {
     "firstName": "Iofifteen",
-    "lastName": "Airani"
+    "lastName": "Airani",
+    "image": "../src/images/Iofifteen-Airani.png"
   },
   {
     "firstName": "Ollie",
-    "lastName": "Kureiji"
+    "lastName": "Kureiji",
+    "image": "../src/images/Kureiji-Ollie_list_thumb.png"
   },
   {
     "firstName": "Anya",
-    "lastName": "Melfissa"
+    "lastName": "Melfissa",
+    "image": "../src/images/Anya-Melfissa_list_thumb.png"
   },
   {
     "firstName": "Reine",
-    "lastName": "Pavolia"
+    "lastName": "Pavolia",
+    "image": "../src/images/Pavolia-Reine_list_thumb.png"
   },
   {
     "firstName": "Zeta",
-    "lastName": "Vestia"
+    "lastName": "Vestia",
+    "image": "../src/images/Vestia-Zeta_list_thumb.png"
   },
   {
     "firstName": "Kaela",
-    "lastName": "Kovalskia"
+    "lastName": "Kovalskia",
+    "image": "../src/images/Kaela-Kovalskia_list_thumb.png"
   },
   {
     "firstName": "Kobo",
-    "lastName": "Kanaeru"
+    "lastName": "Kanaeru",
+    "image": "../src/images/Kobo-Kanaeru_list_thumb.png"
   },
   {
     "firstName": "Calliope",
-    "lastName": "Mori"
+    "lastName": "Mori",
+    "image": "../src/images/Calliope-Mori.png"
   },
   {
     "firstName": "Kiara",
-    "lastName": "Takanashi"
+    "lastName": "Takanashi",
+    "image": "../src/images/Takanashi-Kiara_thumb.png"
   },
   {
     "firstName": "Ina'nis",
-    "lastName": "Ninomae"
+    "lastName": "Ninomae",
+    "image": "../src/images/Inanis-Ninomae.png"
   },
   {
     "firstName": "Gura",
-    "lastName": "Gawr"
+    "lastName": "Gawr",
+    "image": "../src/images/Gura-Gawr.png"
   },
   {
     "firstName": "Amelia",
-    "lastName": "Watson"
+    "lastName": "Watson",
+    "image": "../src/images/Amelia-Watson.png"
   },
   {
     "firstName": "IRyS",
-    "lastName": "IRyS"
+    "lastName": "IRyS",
+    "image": "../src/images/IRyS_list_thumb.png"
   },
   {
     "firstName": "Fauna",
-    "lastName": "Ceres"
+    "lastName": "Ceres",
+    "image": "../src/images/Ceres-Fauna_list_thumb.png"
   },
   {
     "firstName": "Kronii",
-    "lastName": "Ouro"
+    "lastName": "Ouro",
+    "image": "../src/images/Ouro-Kronii_list_thumb.png"
   },
   {
     "firstName": "Mumei",
-    "lastName": "Nanashi"
+    "lastName": "Nanashi",
+    "image": "../src/images/Nanashi-Mumei_list_thumb.png"
   },
   {
     "firstName": "Baelz",
-    "lastName": "Hakos"
+    "lastName": "Hakos",
+    "image": "../src/images/Hakos-Baelz_list_thumb.png"
   },
   {
     "firstName": "Shiori",
-    "lastName": "Novella"
+    "lastName": "Novella",
+    "image": "../src/images/Shiori-Novella_list_thumb.png"
   },
   {
     "firstName": "Bijou",
-    "lastName": "Koseki"
+    "lastName": "Koseki",
+    "image": "../src/images/Koseki-Bijou_list_thumb.png"
   },
   {
     "firstName": "Nerissa",
-    "lastName": "Ravencroft"
+    "lastName": "Ravencroft",
+    "image": "../src/images/Nerissa-Ravencroft_list_thumb.png"
   },
   {
     "firstName": "Fuwawa",
-    "lastName": "Abyssgard(F)"
+    "lastName": "Abyssgard(F)",
+    "image": "../src/images/Fuwawa-Abyssgard_list_thumb.png"
   },
   {
     "firstName": "Mococo",
-    "lastName": "Abyssgard(M)"
+    "lastName": "Abyssgard(M)",
+    "image": "../src/images/Mococo-Abyssgard_list_thumb.png"
   }
 ]
