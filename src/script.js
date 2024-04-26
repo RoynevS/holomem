@@ -182,6 +182,7 @@ function screenController() {
   const cardsDiv = document.querySelector(".card-container");
   const player1Score = document.querySelector(".player-1-section > .score");
   const player2Score = document.querySelector(".player-2-section > .score");
+  const replayBtn = document.querySelector(".replay-btn");
 
   const setScreen = () => {
     const activePlayer = game.getActivePlayer();
